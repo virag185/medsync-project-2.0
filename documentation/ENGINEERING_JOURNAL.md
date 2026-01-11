@@ -58,7 +58,33 @@ fatal: pathspec 'Dockerfile' did not match any files — what does this mean?
 
 How should I structure an engineering journal with RCA and screenshots for a full stack project?
 
+Prompt 9 — CORS Issue Between Frontend & Backend
 
+Why does my browser block requests to my Node.js backend due to CORS, and how do I fix it using Express?
+
+Prompt 10 — Firebase Data Not Updating
+
+My Firebase Firestore document is not updating even though my API returns success. How can I debug this?
+
+Prompt 11 — Frontend Fetch Not Working
+
+Uncaught (in promise) TypeError: Failed to fetch in JavaScript. What are the common reasons and fixes?
+
+Prompt 12 — Doctor Dashboard Not Updating in Real Time
+
+How can a doctor dashboard reflect patient actions immediately after a patient clicks a button?
+
+Prompt 13 — Designing Patient–Doctor Data Flow
+
+What is a clean backend API design to sync patient actions with a doctor dashboard?
+
+Prompt 14 — Docker Not Recognized Error
+
+'docker' is not recognized as an internal or external command. How do I fix this on Windows?
+
+Prompt 17 — Deleting Files Properly in Git
+
+How do I properly delete files from a Git repository so the deletion is tracked?
 
 
 
