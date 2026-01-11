@@ -20,7 +20,7 @@ async function addTestPatient() {
     console.log('✅ Test patient added successfully');
     process.exit(0);
   } catch (error) {
-    console.error('❌ Error adding patient:', error);
+    console.error('❌ Error adding test patient:', error);
     process.exit(1);
   }
 }
