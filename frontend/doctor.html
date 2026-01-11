@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Dashboard</title>
+  <style>
+    body { font-family: Arial; }
+    .patient-card {
+      padding: 20px;
+      border-radius: 10px;
+      width: 350px;
+      margin-top: 20px;
+    }
+    .taken {
+      background: #e8ffe8;
+      border-left: 8px solid green;
+    }
+    .missed {
+      background: #ffeaea;
+      border-left: 8px solid red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Doctor Dashboard</h1>
+
+<div id="card" class="patient-card missed">
+  <h2 id="name"></h2>
+  <p>Status: <b id="status"></b></p>
+  <p>Daily Dosage: <span id="dose"></span></p>
+  <p>Pills Left: <span id="pills"></span></p>
+  <p>Last Taken: <span id="time">—</span></p>
+</div>
+
+<script>
+async function loadDoctor() {
+  const res = await fetch('http://localhost:3000/api/patients');
+  const [p] = await res.json();
+
+  document.getElementById('name').innerText = p.name;
+  document.getElementById('status').innerText = p.taken_today ? 'Taken' : 'Missed';
+  document.getElementById('dose').innerText = p.daily_dosage;
+  document.getElementById('pills').innerText = p.pills_left;
+
+  document.getElementById('time').innerText =
+    p.last_taken_date
+      ? new Date(p.last_taken_date._seconds * 1000).toLocaleString()
+      : '—';
+
+  const card = document.getElementById('card');
+  card.className = p.taken_today ? 'patient-card taken' : 'patient-card missed';
+}
+
+loadDoctor();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 400px;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 10px solid red;
+      background: #ffecec;
+    }
+
+    .taken {
+      border-left-color: green;
+      background: #eaffea;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Patient Dashboard</h1>
+
+<div id="card" class="card">
+  <h2 id="name">—</h2>
+  <p>Status: <b id="status">—</b></p>
+  <p>Last Taken: <span id="lastTaken">—</span></p>
+  <button onclick="takePill()">TAKE PILL</button>
+</div>
+
+<script>
+const API = 'http://localhost:3000';
+
+async function loadPatient() {
+  const res = await fetch(`${API}/api/patients`);
+  const patients = await res.json();
+
+  const p = patients[0]; // single patient demo
+
+  document.getElementById('name').innerText = p.name;
+  document.getElementById('status').innerText = p.status;
+
+  if (p.last_taken_date) {
+    const date = new Date(p.last_taken_date._seconds * 1000);
+    document.getElementById('lastTaken').innerText = date.toLocaleString();
+  }
+
+  const card = document.getElementById('card');
+
+  // 🔴 default RED
+  card.className = 'card';
+
+  // 🟢 ONLY GREEN if taken_today === true
+  if (p.taken_today === true) {
+    card.classList.add('taken');
+  }
+}
+
+async function takePill() {
+  await fetch(`${API}/api/log-dose`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ patient_id: 'patient_001' })
+  });
+
+  await loadPatient();
+}
+
+loadPatient();
+</script>
+
+</body>
+</html>

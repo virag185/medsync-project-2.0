@@ -1,5 +1,5 @@
-const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -7,22 +7,16 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-async function addTestPatient() {
-  try {
-    await db.collection('patients').doc('patient_001').set({
-      name: 'Test Patient',
-      daily_dosage: 1,
-      pills_left: 30,
-      status: 'Good',
-      last_taken_date: null,
-    });
+async function resetPatient() {
+  await db.collection("patients").doc("patient_001").set({
+    name: "Justin Hatch",      // ✅ patient name
+    daily_dosage: 1,
+    pills_left: 30,
+    status: "MISSED",          // 🔴 FORCE RED
+    last_taken_date: null      // ❌ no time
+  });
 
-    console.log('✅ Test patient added successfully');
-    process.exit(0);
-  } catch (error) {
-    console.error('❌ Error adding test patient:', error);
-    process.exit(1);
-  }
+  console.log("✅ Patient reset to MISSED");
 }
 
-addTestPatient();
+resetPatient();
