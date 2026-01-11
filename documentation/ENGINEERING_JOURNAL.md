@@ -1,4 +1,68 @@
 # MedSync Engineering Journal
+# AI & Research Transparency
+
+Throughout this project, I used AI (ChatGPT) as a debugging and learning assistant.
+Below are the **exact prompts** I used, mapped to real problems encountered.
+
+---
+
+### Prompt 1 — Firebase Secure Setup
+
+
+I am building a Node.js backend with Firebase Firestore. How do I connect firebase-admin securely without exposing serviceAccountKey.json to GitHub?
+
+
+---
+
+### Prompt 2 — Node.js await Error
+
+
+SyntaxError: await is only valid in async functions Node.js. How do I fix this error in an Express server?
+
+
+---
+
+### Prompt 3 — API 404 Error
+
+Why am I getting POST http://localhost:3000/api/log-dose
+ 404 Not Found even though my server is running?
+ 
+---
+
+### Prompt 4 — Dashboard State Logic
+
+
+Why does Firestore store taken_today as 'false' (string) instead of false (boolean), and how does this affect JavaScript logic?
+
+
+---
+
+### Prompt 6 — Daily Reset Design
+
+How should I design a daily reset system so a patient can take medicine only once per day?
+
+
+---
+
+### Prompt 7 — Git Repository Errors
+
+fatal: not a git repository (or any of the parent directories): .git — how do I fix this?
+
+fatal: pathspec 'Dockerfile' did not match any files — what does this mean?
+
+
+---
+
+### Prompt 8 — Engineering Documentation
+
+
+How should I structure an engineering journal with RCA and screenshots for a full stack project?
+
+
+
+
+
+
 
 This file documents bugs, errors, investigations, and lessons learned during the MedSync project.
 Bug ID: #008
