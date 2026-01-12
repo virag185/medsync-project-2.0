@@ -251,3 +251,41 @@ This confirmed the backend can run consistently in a containerized environment.
 Commands used:
 docker build -t my-medsync-app .
 docker run -p 3000:3000 my-medsync-app
+---
+
+## AI & Research Transparency Log
+
+The following prompts were used during development to research issues, debug errors, and understand new tools.  
+All prompts are listed exactly as asked.
+
+### Prompt 1
+"Why does Docker show error dockerDesktopLinuxEngine not found on Windows?"
+
+### Prompt 2
+"How do I run a Node.js Express server inside a Docker container?"
+
+### Prompt 3
+"How to expose port 3000 in Docker and access it from localhost?"
+
+### Prompt 4
+"Why does fetch('http://localhost:3000') fail after deploying frontend to Vercel?"
+
+### Prompt 5
+"How do I compare Firestore timestamps to today's date in JavaScript?"
+
+### Prompt 6
+"Why is await not allowed outside async functions in Node.js?"
+
+### Prompt 7
+"How do I structure a REST API for a patient medication tracking system?"
+
+### Prompt 8
+"How to fix ERR_CONNECTION_REFUSED when frontend calls backend API?"
+
+### Prompt 9
+"How to run two HTML dashboards (doctor and patient) using a single static server?"
+
+### Prompt 10
+"How do I log and document debugging steps using Root Cause Analysis (RCA)?"
+
+
