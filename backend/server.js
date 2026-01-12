@@ -39,6 +39,23 @@ app.get('/api/patients', async (req, res) => {
    LOG DOSE (CRITICAL)
 ========================= */
 app.post('/api/log-dose', async (req, res) => {
+  /* -------------------- DOCTOR NUDGE -------------------- */
+app.post('/api/nudge-patient', async (req, res) => {
+  const { patientId } = req.body;
+
+  if (!patientId) {
+    return res.status(400).json({ error: 'patientId required' });
+  }
+
+  await db.collection('notifications').add({
+    patient_id: patientId,
+    message: 'Doctor nudged patient',
+    timestamp: admin.firestore.FieldValue.serverTimestamp()
+  });
+
+  res.json({ message: 'Nudge sent successfully' });
+});
+
   console.log('LOG DOSE BODY:', req.body);
 
   const { patient_id } = req.body;
