@@ -242,3 +242,12 @@ I assumed the backend would run correctly because the logic was valid.
 The server crashed with a JavaScript syntax error.
 
 **Error Message:**
+## Level 5.1 – Docker Containerization
+
+After resolving Docker Desktop initialization issues, the backend was successfully containerized.
+The Docker image was built and run locally using port mapping.
+This confirmed the backend can run consistently in a containerized environment.
+
+Commands used:
+docker build -t my-medsync-app .
+docker run -p 3000:3000 my-medsync-app
